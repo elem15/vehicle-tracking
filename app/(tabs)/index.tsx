@@ -8,17 +8,10 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Text, View } from '../../components/Themed';
 import useVehicles from '../../hooks/useVehicles';
 import Colors from '../../constants/Colors';
-
-const vehiclesDefinition: VehiclesDefinition = {
-  C: 'Track',
-  D: 'Bus',
-  S: 'Special'
-};
-const initialState: VehiclesDefinition = {
-  C: true,
-  D: true,
-  S: true
-};
+import {
+  initialState,
+  vehiclesDefinition
+} from '../../constants/initialState';
 
 export default function TabOneScreen() {
   const [isSelected, setSelection] = useState(initialState);
