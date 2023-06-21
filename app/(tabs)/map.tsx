@@ -1,36 +1,28 @@
-import { Image, StyleSheet } from 'react-native';
+import MapView from 'react-native-maps';
+import { StyleSheet, View } from 'react-native';
+import { useState } from 'react';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-import favicon from '../../assets/images/favicon.png';
-export default function TabTwoScreen() {
+export default function App() {
+  const [mapRegion, setMapRegion] = useState({
+    latitude: 59.93426,
+    longitude: 30.335094,
+    latitudeDelta: 0.1922,
+    longitudeDelta: 0.0421
+  });
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Map</Text>
-      <Image source={favicon} />
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <MapView style={styles.map} region={mapRegion} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    flex: 1
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%'
+  map: {
+    width: '100%',
+    height: '100%'
   }
 });

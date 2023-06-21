@@ -57,7 +57,7 @@ export default function TabOneScreen() {
         <Text style={styles.button}>apply filter</Text>
       </TouchableOpacity>
       {vehicles.map(v => (
-        <TouchableOpacity>
+        <TouchableOpacity key={v.index}>
           <Text key={v.index} style={styles.title}>
             {v.index}. {v.name} ({v.category}).
           </Text>
