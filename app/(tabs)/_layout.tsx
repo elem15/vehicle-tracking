@@ -1,6 +1,10 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import {
+  Pressable,
+  useColorScheme,
+  ColorSchemeName
+} from 'react-native';
 
 import Colors from '../../constants/Colors';
 
@@ -11,43 +15,60 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return (
+    <FontAwesome
+      size={28}
+      style={{ marginBottom: -3 }}
+      {...props}
+    />
+  );
 }
 
+const headerRight = (colorScheme: ColorSchemeName) => (
+  <Link href="/modal" asChild>
+    <Pressable>
+      {({ pressed }) => (
+        <FontAwesome
+          name="language"
+          size={25}
+          color={Colors[colorScheme ?? 'light'].text}
+          style={{
+            marginRight: 15,
+            opacity: pressed ? 0.5 : 1
+          }}
+        />
+      )}
+    </Pressable>
+  </Link>
+);
+
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme: ColorSchemeName = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor:
+          Colors[colorScheme ?? 'light'].tint
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          title: 'Vehicles',
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="car" color={color} />
           ),
+          headerRight: () => headerRight(colorScheme)
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="map"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Map',
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="map" color={color} />
+          ),
+          headerRight: () => headerRight(colorScheme)
         }}
       />
     </Tabs>

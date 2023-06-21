@@ -6,7 +6,7 @@ import favicon from '../../assets/images/favicon.png';
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two!</Text>
+      <Text style={styles.title}>Map</Text>
       <Image source={favicon} />
       <View
         style={styles.separator}
