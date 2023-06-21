@@ -1,12 +1,49 @@
+import { useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import EditScreenInfo from '../../components/EditScreenInfo';
+// import CheckBox from '@react-native-community/checkbox';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Text, View } from '../../components/Themed';
 import useVehicles from '../../hooks/useVehicles';
+import Colors from '../../constants/Colors';
 
+const vehiclesDefinition = {
+  C: 'Track',
+  D: 'Bus',
+  S: 'Special'
+};
 export default function TabOneScreen() {
   const [vehicles] = useVehicles();
+  const [isSelected, setSelection] = useState({
+    C: true,
+    D: true,
+    S: true
+  });
+
   return (
-    <View style={styles.cardsContainer}>
+    <View style={styles.container}>
+      {Object.keys(vehiclesDefinition).map(category => (
+        <View style={styles.checkboxContainer}>
+          <BouncyCheckbox
+            onPress={(isChecked: boolean) => {
+              setSelection(prev => ({
+                ...prev,
+                [category]: isChecked
+              }));
+            }}
+            fillColor={Colors.light.tint}
+            style={styles.checkbox}
+            isChecked={true}
+          />
+          <Text>
+            {
+              vehiclesDefinition[
+                category as keyof typeof vehiclesDefinition
+              ]
+            }{' '}
+            ({category})
+          </Text>
+        </View>
+      ))}
       {vehicles.map(v => (
         <TouchableOpacity>
           <Text key={v.index} style={styles.title}>
@@ -14,7 +51,6 @@ export default function TabOneScreen() {
           </Text>
         </TouchableOpacity>
       ))}
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
   );
 }
@@ -24,7 +60,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    padding: 20
+    padding: 20,
+    gap: 20
   },
   title: {
     fontSize: 20,
@@ -35,8 +72,14 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%'
   },
-  cardsContainer: {
-    marginTop: 30,
-    gap: 20
+  checkboxContainer: {
+    flexDirection: 'row',
+    marginBottom: 0
+  },
+  checkbox: {
+    alignSelf: 'center'
+  },
+  label: {
+    margin: 8
   }
 });
