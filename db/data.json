@@ -1,0 +1,72 @@
+[
+  {
+    "index": 1,
+    "name": "Pat",
+    "phone": "+7 (885) 409-3768",
+    "category": "C",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 2,
+    "name": "Elsa",
+    "phone": "+7 (922) 469-3780",
+    "category": "C",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 3,
+    "name": "Brewer",
+    "phone": "+7 (931) 466-2302",
+    "category": "D",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 4,
+    "name": "Meagan",
+    "phone": "+7 (881) 497-2467",
+    "category": "D",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 5,
+    "name": "Dawn",
+    "phone": "+7 (862) 472-2461",
+    "category": "D",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 6,
+    "name": "Hancock",
+    "phone": "+7 (944) 529-3254",
+    "category": "S",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 7,
+    "name": "Blevins",
+    "phone": "+7 (967) 486-3657",
+    "category": "S",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 8,
+    "name": "Jeannette",
+    "phone": "+7 (998) 433-2211",
+    "category": "S",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 9,
+    "name": "Mariana",
+    "phone": "+7 (972) 553-2798",
+    "category": "S",
+    "coordinates": "59.9359488,30.3169736"
+  },
+  {
+    "index": 10,
+    "name": "Bird",
+    "phone": "+7 (877) 402-2710",
+    "category": "C",
+    "coordinates": "59.9359488,30.3169736"
+  }
+]

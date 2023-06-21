@@ -1,17 +1,19 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
+import useVehicles from '../../hooks/useVehicles';
 
 export default function TabOneScreen() {
+  const [vehicles] = useVehicles();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Vehicles</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+    <View style={styles.cardsContainer}>
+      {vehicles.map(v => (
+        <TouchableOpacity>
+          <Text key={v.index} style={styles.title}>
+            {v.index}. {v.name} ({v.category}).
+          </Text>
+        </TouchableOpacity>
+      ))}
       <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
   );
@@ -20,8 +22,9 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    padding: 20
   },
   title: {
     fontSize: 20,
@@ -31,5 +34,9 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%'
+  },
+  cardsContainer: {
+    marginTop: 30,
+    gap: 20
   }
 });
