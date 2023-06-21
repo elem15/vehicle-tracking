@@ -3,7 +3,12 @@ type Vehicle = {
   name: string;
   phone: string;
   category: 'C' | 'D' | 'S';
-  coordinates: string;
+  coordinates: {
+    latitude: number,
+    longitude: number,
+    latitudeDelta: number,
+    longitudeDelta: number
+  };
 };
 type VehiclesDefinition = {
   C: 'Track' | boolean;

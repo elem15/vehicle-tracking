@@ -1,18 +1,41 @@
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, View } from 'react-native';
-import { useState } from 'react';
+import { FontAwesome } from '@expo/vector-icons';
+import useVehicles from '../../hooks/useVehicles';
+import { mapRegion } from '../../constants/initialStates';
 
 export default function App() {
-  const [mapRegion, setMapRegion] = useState({
-    latitude: 59.93426,
-    longitude: 30.335094,
-    latitudeDelta: 0.1922,
-    longitudeDelta: 0.0421
-  });
-
+  const [vehicles] = useVehicles();
   return (
     <View style={styles.container}>
-      <MapView style={styles.map} region={mapRegion} />
+      <MapView style={styles.map} region={mapRegion}>
+        {vehicles.map(v => {
+          const name =
+            v.category == 'C'
+              ? 'truck'
+              : v.category == 'D'
+              ? 'bus'
+              : 'ambulance';
+          const color =
+            v.category == 'C'
+              ? 'black'
+              : v.category == 'D'
+              ? 'blue'
+              : 'red';
+          return (
+            <Marker
+              key={v.index}
+              coordinate={v.coordinates}
+              title="Marker">
+              <FontAwesome
+                name={name}
+                size={25}
+                color={color}
+              />
+            </Marker>
+          );
+        })}
+      </MapView>
     </View>
   );
 }

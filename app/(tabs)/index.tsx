@@ -11,7 +11,7 @@ import Colors from '../../constants/Colors';
 import {
   initialState,
   vehiclesDefinition
-} from '../../constants/initialState';
+} from '../../constants/initialStates';
 
 export default function TabOneScreen() {
   const [isSelected, setSelection] = useState(initialState);
