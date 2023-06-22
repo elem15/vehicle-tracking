@@ -7,11 +7,14 @@ import Colors from '../../constants/Colors';
 import { initialState, vehiclesDefinition } from '../../constants/initialStates';
 import { useRouter } from 'expo-router';
 import { commonStyles } from '../../styles/index.style';
+import { useTranslation } from 'react-i18next';
 export default function TabOneScreen() {
   const router = useRouter();
   const [isSelected, setSelection] = useState(initialState);
   const [applySelected, setApplySelected] = useState(initialState);
   const [vehicles] = useVehicles(applySelected);
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -36,12 +39,12 @@ export default function TabOneScreen() {
               isChecked={true}
             />
             <Text style={styles.label}>
-              {vehiclesDefinition[item as keyof VehiclesDefinition]}({item})
+              {t(vehiclesDefinition[item as keyof VehiclesDefinition])}({item})
             </Text>
           </View>
         )}></FlatList>
       <TouchableOpacity onPress={() => setApplySelected(isSelected)}>
-        <Text style={commonStyles.button}>apply filter</Text>
+        <Text style={{ ...commonStyles.button, backgroundColor: 'red' }}>{t('filter')}</Text>
       </TouchableOpacity>
       {vehicles.map(v => (
         <TouchableOpacity key={v.index} onPress={() => router.push(`driver-cards/${v.index}`)}>

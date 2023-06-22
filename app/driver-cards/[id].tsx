@@ -2,22 +2,23 @@ import { Stack, useSearchParams } from 'expo-router';
 import { Text, View } from '../../components/Themed';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import useDriverCard from '../../hooks/useDriverCard';
-import { vehiclesDefinition, whatsAppMsg } from '../../constants/initialStates';
+import { vehiclesDefinition } from '../../constants/initialStates';
 import { commonStyles } from '../../styles/index.style';
 import { Linking } from 'react-native';
 import MapView from 'react-native-maps';
 import MapFragment from '../../components/MapFragment';
+import { useTranslation } from 'react-i18next';
 
 export default function DriverCard() {
   const params = useSearchParams();
   const id = params.id as string;
   const [driver] = useDriverCard(+id);
-
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <Stack.Screen
         options={{
-          headerTitle: 'Driver card'
+          headerTitle: `${t('driver')}`
         }}></Stack.Screen>
       <View style={styles.card}>
         <MapView style={styles.map} region={driver.coordinates}>
@@ -26,21 +27,23 @@ export default function DriverCard() {
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <Text style={styles.title}>
-            <Text style={styles.normalText}>name: </Text>
+            <Text style={styles.normalText}>{t('name')}: </Text>
             {driver.name}
           </Text>
         </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <Text style={styles.title}>
-            <Text style={styles.normalText}>vehicle type: </Text>
-            {vehiclesDefinition[driver.category]}
+            <Text style={styles.normalText}>{t('vehicle')}: </Text>
+            {t(vehiclesDefinition[driver.category])}
           </Text>
         </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <Text style={styles.title}>
-            <Text style={styles.normalText}>phone number:{'\n'}</Text>
+            <Text style={styles.normalText}>
+              {t('phone')}:{'\n'}
+            </Text>
             {driver.phone}
           </Text>
         </View>
@@ -49,7 +52,7 @@ export default function DriverCard() {
           <TouchableOpacity
             style={commonStyles.button}
             onPress={() => Linking.openURL(`tel:${driver.phone}`)}>
-            <Text style={styles.buttonText}>Call the driver</Text>
+            <Text style={styles.buttonText}>{t('Call')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -58,10 +61,10 @@ export default function DriverCard() {
               backgroundColor: 'green'
             }}
             onPress={() => {
-              let url = `whatsapp://send?text=${whatsAppMsg}&phone=${driver.phone}`;
+              let url = `whatsapp://send?text=${t('message')}&phone=${driver.phone}`;
               Linking.openURL(url);
             }}>
-            <Text style={styles.buttonText}>Write to driver</Text>
+            <Text style={styles.buttonText}>{t('Write')}</Text>
           </TouchableOpacity>
         </View>
       </View>

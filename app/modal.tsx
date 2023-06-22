@@ -15,14 +15,18 @@ export default function ModalScreen() {
     <View style={styles.container}>
       <Stack.Screen
         options={{
-          headerTitle: 'settings'
+          headerTitle: `${t('settings')}`
         }}></Stack.Screen>
       <View style={styles.container}>
-        <Text style={styles.title}>Select language</Text>
-        <Text>{t('Welcome to React')}</Text>
-        <TouchableOpacity onPress={() => changeLanguageHandler('ru')}>
-          <Text style={commonStyles.button}>Russian</Text>
-        </TouchableOpacity>
+        <Text style={styles.title}>{t('Select')}</Text>
+        <View style={styles.horizontalContainer}>
+          <TouchableOpacity onPress={() => changeLanguageHandler('ru')}>
+            <Text style={{ ...commonStyles.button, backgroundColor: 'red' }}>{t('Russian')}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => changeLanguageHandler('en')}>
+            <Text style={commonStyles.button}>{t('English')}</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
         {/* Use a light status bar on iOS to account for the black space above the modal */}
@@ -38,9 +42,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  horizontalContainer: {
+    flexDirection: 'row'
+  },
   title: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 30
   },
   separator: {
     marginVertical: 30,

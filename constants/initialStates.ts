@@ -5,7 +5,7 @@ export const vehiclesDefinition: VehiclesDefinition = {
   D: 'BUS',
   S: 'SPECIAL'
 };
-export const initialState: VehiclesDefinition = {
+export const initialState: VehiclesDefinitionBoolean = {
   C: true,
   D: true,
   S: true
@@ -20,4 +20,3 @@ export const mapRegion = {
 const loadedData = JSON.stringify(data);
 export const initialVehicles = JSON.parse(loadedData) as Vehicle[];
 
-export const whatsAppMsg = 'Good afternoon, please tell me what order number you currently have in work'
