@@ -1,0 +1,122 @@
+[
+  {
+    "index": 1,
+    "name": "Mikhail",
+    "phone": "+19143384880",
+    "category": "C",
+    "coordinates": {
+      "latitude": 59.93426,
+      "longitude": 30.335094,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 2,
+    "name": "Vitaly",
+    "phone": "+447767874847",
+    "category": "C",
+    "coordinates": {
+      "latitude": 59.911005,
+      "longitude": 30.397304,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 3,
+    "name": "Dmitry",
+    "phone": "+995568644571",
+    "category": "D",
+    "coordinates": {
+      "latitude": 59.892659,
+      "longitude": 30.301127,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 4,
+    "name": "Meagan",
+    "phone": "+447909608302",
+    "category": "D",
+    "coordinates": {
+      "latitude": 59.930079,
+      "longitude": 30.325909,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 5,
+    "name": "Murat",
+    "phone": "+13322519913",
+    "category": "D",
+    "coordinates": {
+      "latitude": 59.900824,
+      "longitude": 30.402383,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 6,
+    "name": "Boris",
+    "phone": "+447775462369",
+    "category": "S",
+    "coordinates": {
+      "latitude": 59.930619,
+      "longitude": 30.362471,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 7,
+    "name": "Nicolas",
+    "phone": "+447471665765",
+    "category": "S",
+    "coordinates": {
+      "latitude": 59.928914,
+      "longitude": 30.388758,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 8,
+    "name": "Alecs",
+    "phone": "+19143384880",
+    "category": "S",
+    "coordinates": {
+      "latitude": 59.931517,
+      "longitude": 30.410145,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 9,
+    "name": "Mariana",
+    "phone": "+995568644571",
+    "category": "S",
+    "coordinates": {
+      "latitude": 59.929976,
+      "longitude": 30.417385,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  },
+  {
+    "index": 10,
+    "name": "Tristan",
+    "phone": "+447775462369",
+    "category": "C",
+    "coordinates": {
+      "latitude": 59.953316,
+      "longitude": 30.32281,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
+  }
+]
