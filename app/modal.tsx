@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
-import { Link, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
+import { useTranslation } from 'react-i18next';
+import { TouchableOpacity } from 'react-native';
+import { commonStyles } from '../styles/index.style';
 
 export default function ModalScreen() {
+  const { t, i18n } = useTranslation();
+  const changeLanguageHandler = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
   return (
     <View style={styles.container}>
       <Stack.Screen
@@ -14,17 +19,14 @@ export default function ModalScreen() {
         }}></Stack.Screen>
       <View style={styles.container}>
         <Text style={styles.title}>Select language</Text>
-        <View
-          style={styles.separator}
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
-        />
-        <EditScreenInfo path="app/modal.tsx" />
+        <Text>{t('Welcome to React')}</Text>
+        <TouchableOpacity onPress={() => changeLanguageHandler('ru')}>
+          <Text style={commonStyles.button}>Russian</Text>
+        </TouchableOpacity>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
 
         {/* Use a light status bar on iOS to account for the black space above the modal */}
-        <StatusBar
-          style={Platform.OS === 'ios' ? 'light' : 'auto'}
-        />
+        <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       </View>
     </View>
   );

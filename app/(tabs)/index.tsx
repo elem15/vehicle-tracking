@@ -1,27 +1,17 @@
 import { useState } from 'react';
-import {
-  FlatList,
-  StyleSheet,
-  TouchableOpacity
-} from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { Text, View } from '../../components/Themed';
 import useVehicles from '../../hooks/useVehicles';
 import Colors from '../../constants/Colors';
-import {
-  initialState,
-  vehiclesDefinition
-} from '../../constants/initialStates';
+import { initialState, vehiclesDefinition } from '../../constants/initialStates';
 import { useRouter } from 'expo-router';
 import { commonStyles } from '../../styles/index.style';
-
 export default function TabOneScreen() {
   const router = useRouter();
   const [isSelected, setSelection] = useState(initialState);
-  const [applySelected, setApplySelected] =
-    useState(initialState);
+  const [applySelected, setApplySelected] = useState(initialState);
   const [vehicles] = useVehicles(applySelected);
-
   return (
     <View style={styles.container}>
       <FlatList
@@ -46,27 +36,15 @@ export default function TabOneScreen() {
               isChecked={true}
             />
             <Text style={styles.label}>
-              {
-                vehiclesDefinition[
-                  item as keyof VehiclesDefinition
-                ]
-              }
-              ({item})
+              {vehiclesDefinition[item as keyof VehiclesDefinition]}({item})
             </Text>
           </View>
         )}></FlatList>
-      <TouchableOpacity
-        onPress={() => setApplySelected(isSelected)}>
-        <Text style={commonStyles.button}>
-          apply filter
-        </Text>
+      <TouchableOpacity onPress={() => setApplySelected(isSelected)}>
+        <Text style={commonStyles.button}>apply filter</Text>
       </TouchableOpacity>
       {vehicles.map(v => (
-        <TouchableOpacity
-          key={v.index}
-          onPress={() =>
-            router.push(`driver-cards/${v.index}`)
-          }>
+        <TouchableOpacity key={v.index} onPress={() => router.push(`driver-cards/${v.index}`)}>
           <Text style={styles.title}>
             {v.index}. {v.name} ({v.category}).
           </Text>
@@ -88,11 +66,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   label: {
-    fontSize: 14,
+    fontSize: 12,
     marginLeft: -10
   },
   checkboxContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     height: 50,
     paddingBottom: 0
   },
