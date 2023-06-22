@@ -1,19 +1,11 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider
-} from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { initialVehicles } from '../constants/initialStates';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import {
-  createContext,
-  useEffect,
-  useMemo,
-  useState
-} from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 import { useColorScheme } from 'react-native';
+import './i18n';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -27,9 +19,7 @@ export const unstable_settings = {
 
 export const VehiclesContext = createContext({
   vehicles: [] as Vehicle[],
-  setVehicles: (() => {}) as React.Dispatch<
-    React.SetStateAction<Vehicle[]>
-  >
+  setVehicles: (() => {}) as React.Dispatch<React.SetStateAction<Vehicle[]>>
 });
 
 export default function RootLayout() {
@@ -54,27 +44,16 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const [vehicles, setVehicles] = useState(initialVehicles);
-  const value = useMemo(
-    () => ({ vehicles, setVehicles }),
-    [vehicles]
-  );
+  const value = useMemo(() => ({ vehicles, setVehicles }), [vehicles]);
 
   const colorScheme = useColorScheme();
 
   return (
     <>
       <VehiclesContext.Provider value={value}>
-        <ThemeProvider
-          value={
-            colorScheme === 'dark'
-              ? DarkTheme
-              : DefaultTheme
-          }>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack>
-            <Stack.Screen
-              name="(tabs)"
-              options={{ headerShown: false }}
-            />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen
               name="modal"
               options={{
