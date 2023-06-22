@@ -1,3 +1,5 @@
+// Get filtered vehicles from data.json
+
 import { useEffect, useContext } from 'react';
 import { VehiclesContext } from '../app/_layout';
 import { initialVehicles } from '../constants/initialStates';

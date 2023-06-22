@@ -12,8 +12,10 @@ import {
   initialState,
   vehiclesDefinition
 } from '../../constants/initialStates';
+import { useRouter } from 'expo-router';
 
 export default function TabOneScreen() {
+  const router = useRouter();
   const [isSelected, setSelection] = useState(initialState);
   const [applySelected, setApplySelected] =
     useState(initialState);
@@ -57,8 +59,12 @@ export default function TabOneScreen() {
         <Text style={styles.button}>apply filter</Text>
       </TouchableOpacity>
       {vehicles.map(v => (
-        <TouchableOpacity key={v.index}>
-          <Text key={v.index} style={styles.title}>
+        <TouchableOpacity
+          key={v.index}
+          onPress={() =>
+            router.push(`driver-cards/${v.index}`)
+          }>
+          <Text style={styles.title}>
             {v.index}. {v.name} ({v.category}).
           </Text>
         </TouchableOpacity>

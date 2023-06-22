@@ -1,8 +1,9 @@
 import MapView, { Marker } from 'react-native-maps';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import useVehicles from '../../hooks/useVehicles';
 import { mapRegion } from '../../constants/initialStates';
+import { View } from '../../components/Themed';
 
 export default function App() {
   const [vehicles] = useVehicles();

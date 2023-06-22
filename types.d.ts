@@ -11,7 +11,7 @@ type Vehicle = {
   };
 };
 type VehiclesDefinition = {
-  C: 'Track' | boolean;
-  D: 'Bus' | boolean;
-  S: 'Special' | boolean;
+  C: 'TRACK' | boolean;
+  D: 'BUS' | boolean;
+  S: 'SPECIAL' | boolean;
 };

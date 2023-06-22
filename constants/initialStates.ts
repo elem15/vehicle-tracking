@@ -1,9 +1,9 @@
 import data from '../db/data.json';
 
 export const vehiclesDefinition: VehiclesDefinition = {
-  C: 'Track',
-  D: 'Bus',
-  S: 'Special'
+  C: 'TRACK',
+  D: 'BUS',
+  S: 'SPECIAL'
 };
 export const initialState: VehiclesDefinition = {
   C: true,
