@@ -13,6 +13,7 @@ import {
   vehiclesDefinition
 } from '../../constants/initialStates';
 import { useRouter } from 'expo-router';
+import { commonStyles } from '../../styles/index.style';
 
 export default function TabOneScreen() {
   const router = useRouter();
@@ -56,7 +57,9 @@ export default function TabOneScreen() {
         )}></FlatList>
       <TouchableOpacity
         onPress={() => setApplySelected(isSelected)}>
-        <Text style={styles.button}>apply filter</Text>
+        <Text style={commonStyles.button}>
+          apply filter
+        </Text>
       </TouchableOpacity>
       {vehicles.map(v => (
         <TouchableOpacity
@@ -87,16 +90,6 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     marginLeft: -10
-  },
-  button: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: Colors.light.tint,
-    borderRadius: 5,
-    marginLeft: 30,
-    paddingHorizontal: 10,
-    paddingBottom: 5,
-    color: '#fff'
   },
   checkboxContainer: {
     flexDirection: 'row',

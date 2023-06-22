@@ -7,7 +7,7 @@ export const commonStyles = StyleSheet.create({
     fontWeight: 'bold',
     backgroundColor: Colors.light.tint,
     borderRadius: 5,
-    marginLeft: 30,
+    marginHorizontal: 7,
     paddingHorizontal: 10,
     paddingBottom: 5,
     color: '#fff'

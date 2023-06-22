@@ -2,7 +2,7 @@ import { Stack, useSearchParams } from 'expo-router';
 import { Text, View } from '../../components/Themed';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import useDriverCard from '../../hooks/useDriverCard';
-import { vehiclesDefinition } from '../../constants/initialStates';
+import { vehiclesDefinition, whatsAppMsg } from '../../constants/initialStates';
 import { commonStyles } from '../../styles/index.style';
 import { Linking } from 'react-native';
 
@@ -24,46 +24,38 @@ export default function DriverCard() {
             {driver.name}
           </Text>
         </View>
-        <View
-          style={styles.separator}
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
-        />
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <Text style={styles.title}>
-            <Text style={styles.normalText}>
-              vehicle type:{' '}
-            </Text>
+            <Text style={styles.normalText}>vehicle type: </Text>
             {vehiclesDefinition[driver.category]}
           </Text>
         </View>
-        <View
-          style={styles.separator}
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
-        />
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <Text style={styles.title}>
-            <Text style={styles.normalText}>
-              phone number:{'\n'}
-            </Text>
+            <Text style={styles.normalText}>phone number:{'\n'}</Text>
             {driver.phone}
           </Text>
         </View>
-        <View
-          style={styles.separator}
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
-        />
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <TouchableOpacity
             style={commonStyles.button}
-            onPress={() =>
-              Linking.openURL(`tel:${driver.phone}`)
-            }>
-            <Text style={styles.buttonText}>
-              Call the driver
-            </Text>
+            onPress={() => Linking.openURL(`tel:${driver.phone}`)}>
+            <Text style={styles.buttonText}>Call the driver</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              ...commonStyles.button,
+              backgroundColor: 'green'
+            }}
+            onPress={() => {
+              let url = `whatsapp://send?text=${whatsAppMsg}&phone=${driver.phone}`;
+              Linking.openURL(url);
+            }}>
+            <Text style={styles.buttonText}>Write to driver</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -81,6 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start'
   },
   cardItem: {
+    flexDirection: 'row',
     margin: 2
   },
   title: {
