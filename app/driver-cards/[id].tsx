@@ -5,6 +5,8 @@ import useDriverCard from '../../hooks/useDriverCard';
 import { vehiclesDefinition, whatsAppMsg } from '../../constants/initialStates';
 import { commonStyles } from '../../styles/index.style';
 import { Linking } from 'react-native';
+import MapView from 'react-native-maps';
+import MapFragment from '../../components/MapFragment';
 
 export default function DriverCard() {
   const params = useSearchParams();
@@ -18,6 +20,10 @@ export default function DriverCard() {
           headerTitle: 'Driver card'
         }}></Stack.Screen>
       <View style={styles.card}>
+        <MapView style={styles.map} region={driver.coordinates}>
+          <MapFragment v={driver} />
+        </MapView>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View style={styles.cardItem}>
           <Text style={styles.title}>
             <Text style={styles.normalText}>name: </Text>
@@ -95,6 +101,6 @@ const styles = StyleSheet.create({
   },
   map: {
     width: '100%',
-    height: '100%'
+    height: '50%'
   }
 });
