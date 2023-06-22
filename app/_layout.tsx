@@ -4,9 +4,15 @@ import {
   DefaultTheme,
   ThemeProvider
 } from '@react-navigation/native';
+import { initialVehicles } from '../constants/initialStates';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import { useEffect } from 'react';
+import {
+  createContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react';
 import { useColorScheme } from 'react-native';
 
 export {
@@ -18,6 +24,13 @@ export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '(tabs)'
 };
+
+export const VehiclesContext = createContext({
+  vehicles: [] as Vehicle[],
+  setVehicles: (() => {}) as React.Dispatch<
+    React.SetStateAction<Vehicle[]>
+  >
+});
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -40,27 +53,37 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const [vehicles, setVehicles] = useState(initialVehicles);
+  const value = useMemo(
+    () => ({ vehicles, setVehicles }),
+    [vehicles]
+  );
+
   const colorScheme = useColorScheme();
 
   return (
     <>
-      <ThemeProvider
-        value={
-          colorScheme === 'dark' ? DarkTheme : DefaultTheme
-        }>
-        <Stack>
-          <Stack.Screen
-            name="(tabs)"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="modal"
-            options={{
-              presentation: 'modal'
-            }}
-          />
-        </Stack>
-      </ThemeProvider>
+      <VehiclesContext.Provider value={value}>
+        <ThemeProvider
+          value={
+            colorScheme === 'dark'
+              ? DarkTheme
+              : DefaultTheme
+          }>
+          <Stack>
+            <Stack.Screen
+              name="(tabs)"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="modal"
+              options={{
+                presentation: 'modal'
+              }}
+            />
+          </Stack>
+        </ThemeProvider>
+      </VehiclesContext.Provider>
     </>
   );
 }

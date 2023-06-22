@@ -1,16 +1,20 @@
-import data from '../db/data.json';
-import { useState, useEffect } from 'react';
+// Get filtered vehicles from data.json
 
-export default function useVehicles(isSelected: VehiclesDefinition) {
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+import { useEffect, useContext } from 'react';
+import { VehiclesContext } from '../app/_layout';
+import { initialVehicles } from '../constants/initialStates';
+
+export default function useVehicles(isSelected?: VehiclesDefinition) {
+
+  // Context used because same data should be in the list and in the map
+  const { vehicles, setVehicles } = useContext(VehiclesContext);
+
   useEffect(() => {
-    const loadedData = JSON.stringify(data);
-    const vehicles = JSON.parse(loadedData) as Vehicle[];
-    const currentVehicles = vehicles.filter(v => {
-      if (isSelected[v.category]) return true
-      else return false
-    })
-    setVehicles(currentVehicles);
+    if (isSelected) {
+      const currentVehicles = initialVehicles.filter(v => isSelected[v.category])
+      setVehicles(currentVehicles);
+    }
   }, [isSelected]);
+
   return [vehicles]
 }

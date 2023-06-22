@@ -1,36 +1,29 @@
-import { Image, StyleSheet } from 'react-native';
+import MapView from 'react-native-maps';
+import { StyleSheet } from 'react-native';
+import useVehicles from '../../hooks/useVehicles';
+import { mapRegion } from '../../constants/initialStates';
+import { View } from '../../components/Themed';
+import MapFragment from '../../components/MapFragment';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-import favicon from '../../assets/images/favicon.png';
-export default function TabTwoScreen() {
+export default function Map() {
+  const [vehicles] = useVehicles();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Map</Text>
-      <Image source={favicon} />
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <MapView style={styles.map} region={mapRegion}>
+        {vehicles.map(v => (
+          <MapFragment key={v.index} v={v} />
+        ))}
+      </MapView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    flex: 1
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%'
+  map: {
+    width: '100%',
+    height: '100%'
   }
 });

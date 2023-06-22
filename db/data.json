@@ -1,72 +1,122 @@
 [
   {
     "index": 1,
-    "name": "Pat",
-    "phone": "+7 (885) 409-3768",
+    "name": "Mikhail",
+    "phone": "+19143384880",
     "category": "C",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.93426,
+      "longitude": 30.335094,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 2,
-    "name": "Elsa",
-    "phone": "+7 (922) 469-3780",
+    "name": "Vitaly",
+    "phone": "+447767874847",
     "category": "C",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.911005,
+      "longitude": 30.397304,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 3,
-    "name": "Brewer",
-    "phone": "+7 (931) 466-2302",
+    "name": "Dmitry",
+    "phone": "+995568644571",
     "category": "D",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.892659,
+      "longitude": 30.301127,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 4,
     "name": "Meagan",
-    "phone": "+7 (881) 497-2467",
+    "phone": "+447909608302",
     "category": "D",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.930079,
+      "longitude": 30.325909,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 5,
-    "name": "Dawn",
-    "phone": "+7 (862) 472-2461",
+    "name": "Murat",
+    "phone": "+13322519913",
     "category": "D",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.900824,
+      "longitude": 30.402383,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 6,
-    "name": "Hancock",
-    "phone": "+7 (944) 529-3254",
+    "name": "Boris",
+    "phone": "+447775462369",
     "category": "S",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.930619,
+      "longitude": 30.362471,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 7,
-    "name": "Blevins",
-    "phone": "+7 (967) 486-3657",
+    "name": "Nicolas",
+    "phone": "+447471665765",
     "category": "S",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.928914,
+      "longitude": 30.388758,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 8,
-    "name": "Jeannette",
-    "phone": "+7 (998) 433-2211",
+    "name": "Alecs",
+    "phone": "+19143384880",
     "category": "S",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.931517,
+      "longitude": 30.410145,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 9,
     "name": "Mariana",
-    "phone": "+7 (972) 553-2798",
+    "phone": "+995568644571",
     "category": "S",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.929976,
+      "longitude": 30.417385,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   },
   {
     "index": 10,
-    "name": "Bird",
-    "phone": "+7 (877) 402-2710",
+    "name": "Tristan",
+    "phone": "+447775462369",
     "category": "C",
-    "coordinates": "59.9359488,30.3169736"
+    "coordinates": {
+      "latitude": 59.953316,
+      "longitude": 30.32281,
+      "latitudeDelta": 0.0922,
+      "longitudeDelta": 0.0421
+    }
   }
 ]
