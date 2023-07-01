@@ -1,6 +1,11 @@
 # Vehicle tracking
 
-## 🚀 How to use
+## 🚖 How to use
+Install "Expo Go" on Android or IPhone.
+Go to https://expo.dev/@elem15/vehicle.
+Scan QR-code.
+
+## 🚀 How to develop
 **Step 1**
 ```sh
 npx create-expo-app --template
@@ -12,9 +17,7 @@ name you app as example my-app
 cd my-app
 npm run start
 ```
-
 Install "Expo Go" on Android or IPhone.
-
 Scan QR-code.
 
 **Step 2**
